@@ -40,6 +40,8 @@ services:
       - "8000:8000"
     volumes:
       - ./ml:/app
+      - ./data:/data
+      - ./backend:/backend
 
   frontend:
     build: ./frontend
