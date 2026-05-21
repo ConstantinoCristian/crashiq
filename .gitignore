@@ -8,9 +8,4 @@ dist/
 *.log
 data/
 ml/model.joblib
-
-data/
-ml/model.joblib
-
-frontend/
-.env
+frontend/git add .gitignore
