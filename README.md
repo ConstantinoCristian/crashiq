@@ -1,4 +1,4 @@
-# CrashIQ 🚨
+# CrashIQ 
 
 A full-stack road accident analytics and risk prediction dashboard using real global data.
 
