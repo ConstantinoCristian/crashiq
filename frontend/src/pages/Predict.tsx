@@ -1,8 +1,8 @@
+import React from "react"
+
+
 const Predict = () => {
-    return (
-        <>
-        </>
-    )
+    return <div className="min-h-screen bg-[#080808] text-white p-8">Predict</div>
 }
 
 
