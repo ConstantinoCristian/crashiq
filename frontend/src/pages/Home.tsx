@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import React from "react";
+// @ts-ignore
 import ukFlag from "../assets/ukF.png"
+// @ts-ignore
 import usaFlag from "../assets/usaF.png"
 
 
