@@ -11,12 +11,12 @@ export const getStats = async (req: Request, res: Response): Promise<void> => {
     )
 
     const byWeather = await pool.query(
-        'SELECT weather, COUNT(*) as count FROM accidents WHERE country = $1 GROUP BY weather ORDER BY count DESC LIMIT 10',
+        'SELECT weather, COUNT(*) as count FROM accidents WHERE country = $1 GROUP BY weather ORDER BY count DESC LIMIT 4',
         [country]
     )
 
     const byTimeOfDay = await pool.query(
-        'SELECT time, COUNT(*) as count FROM accidents WHERE country = $1 GROUP BY time ORDER BY count DESC LIMIT 10',
+        'SELECT time, COUNT(*) as count FROM accidents WHERE country = $1 AND time IS NOT NULL GROUP BY time ORDER BY count DESC LIMIT 5',
         [country]
     )
 
@@ -40,3 +40,4 @@ export const getStats = async (req: Request, res: Response): Promise<void> => {
     res.status(500).json({ error: 'Failed to fetch stats' })
   }
 }
+

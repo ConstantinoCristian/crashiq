@@ -92,7 +92,7 @@ function Home() {
             <div className="flex items-center gap-6 text-neutral-600 text-xs tracking-widest">
                 <span>Road safety saves lives.</span>
                 <a
-                    href="https://www.who.int/initiatives/decade-of-action-for-road-safety-2021-2030"
+                    href="/donate"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="border-b border-neutral-700 pb-px hover:text-neutral-400 hover:border-neutral-500 transition-colors duration-200"
