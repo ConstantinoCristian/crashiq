@@ -1,30 +1,33 @@
-# CrashIQ 
+# CrashIQ
 
 A full-stack road accident analytics and risk prediction dashboard using real global data.
 
 ## Features
-- 🗺️ Interactive global accident hotspot map
-- 📊 Trend charts by weather, time, vehicle type
-- 🔮 Risk prediction based on road conditions
-- 🌍 Data from UK STATS19, WHO, NHTSA datasets
+
+* 🗺️ Interactive global accident hotspot map
+* 📊 Trend charts by weather, time, vehicle type
+* 🔮 Risk prediction based on road conditions
+* 🌍 Data from UK STATS19, WHO, NHTSA datasets
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | React, TypeScript, Leaflet.js, Recharts |
-| Backend | Node.js, Express, TypeScript |
-| ML Service | Python, FastAPI, Scikit-learn |
-| Database | PostgreSQL |
-| DevOps | Docker Compose, GitHub Actions |
+| Layer      | Technology                              |
+| ---------- | --------------------------------------- |
+| Frontend   | React, TypeScript, Leaflet.js, Recharts |
+| Backend    | Node.js, Express, TypeScript            |
+| ML Service | Python, FastAPI, Scikit-learn           |
+| Database   | PostgreSQL                              |
+| DevOps     | Docker Compose, GitHub Actions          |
 
 ## Getting Started
 
 ### Prerequisites
-- Docker & Docker Compose
-- Node.js 20+
+
+* Docker & Docker Compose
+* Node.js 20+
 
 ### Run locally
+
 ```bash
 git clone https://github.com/ConstantinoCristian/crashiq
 cd crashiq
@@ -32,13 +35,23 @@ cp .env.example .env
 docker compose up
 ```
 
-App runs at `http://localhost:3000`  
-API runs at `http://localhost:5000`  
+App runs at `http://localhost:3000`
+API runs at `http://localhost:5000`
 ML service runs at `http://localhost:8000`
+
+## Optional Dataset
+
+The US Accidents dataset is **not included in this repository** due to its large file size.
+
+If you want to use the US Accidents dataset locally, you can download it from Kaggle:
+
+https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents
+
+After downloading it, place the dataset in the `data/` directory.
 
 ## Architecture
 
-```
+```text
 crashiq/
 ├── frontend/     # React + TypeScript
 ├── backend/      # Node.js + Express
@@ -49,17 +62,19 @@ crashiq/
 
 ## API Endpoints
 
-| Method | Route | Description |
-|---|---|---|
-| GET | /api/accidents | Paginated accident records |
-| GET | /api/accidents/hotspots | Clustered map data |
-| GET | /api/stats | Aggregated statistics |
-| POST | /api/predict | Risk prediction |
+| Method | Route                   | Description                |
+| ------ | ----------------------- | -------------------------- |
+| GET    | /api/accidents          | Paginated accident records |
+| GET    | /api/accidents/hotspots | Clustered map data         |
+| GET    | /api/stats              | Aggregated statistics      |
+| POST   | /api/predict            | Risk prediction            |
 
 ## Testing
+
 ```bash
 cd backend && npm test
 ```
 
 ## License
+
 MIT
