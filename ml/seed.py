@@ -88,12 +88,17 @@ def clean_uk(path: str) -> pd.DataFrame:
 def clean_us(path: str) -> pd.DataFrame:
     print("Loading US data...")
     # US dataset is large — sample 200k rows to keep things manageable
+<<<<<<< HEAD
     #df = pd.read_csv(path, low_memory=False, nrows=200000)
     #df = pd.read_csv(path, engine='python', on_bad_lines='skip', skiprows=lambda x: x != 0 and x % 35 != 0)
     chunks = []
     for chunk in pd.read_csv(path, low_memory=False, chunksize=500000):
         chunks.append(chunk.sample(frac=0.15, random_state=49))
     df = pd.concat(chunks, ignore_index=True)
+=======
+    df = pd.read_csv(path, low_memory=False, nrows=200000)
+
+>>>>>>> 9454744 (phase 2 - ml-model)
     out = pd.DataFrame()
     out["source"] = "US"
     out["severity"] = df["Severity"].map(US_SEVERITY).fillna("slight")
@@ -119,6 +124,7 @@ def seed(df: pd.DataFrame, conn):
     cursor = conn.cursor()
 
     rows = [
+<<<<<<< HEAD
     (
         row.source, row.severity, row.latitude, row.longitude,
         None if pd.isna(row.date) else row.date,
@@ -129,6 +135,16 @@ def seed(df: pd.DataFrame, conn):
     )
     for row in df.itertuples(index=False)
 ]
+=======
+        (
+            row.source, row.severity, row.latitude, row.longitude,
+            row.date, row.time, row.day_of_week, row.weather,
+            row.road_type, row.speed_limit, row.light_conditions,
+            row.road_surface, row.urban_or_rural, row.country
+        )
+        for row in df.itertuples(index=False)
+    ]
+>>>>>>> 9454744 (phase 2 - ml-model)
 
     execute_values(cursor, """
                            INSERT INTO accidents (
@@ -145,14 +161,34 @@ def seed(df: pd.DataFrame, conn):
 
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     us_path = "/data/us_accidents.csv"
 
     us_df = clean_us(us_path)
     print(f"\nTotal rows to insert: {len(us_df):,}")
+=======
+    uk_path = "/data/uk_accidents.csv"
+    us_path = "/data/us_accidents.csv"
+
+    uk_df = clean_uk(uk_path)
+    us_df = clean_us(us_path)
+    combined = pd.concat([uk_df, us_df], ignore_index=True)
+    print(f"\nTotal rows to insert: {len(combined):,}")
+>>>>>>> 9454744 (phase 2 - ml-model)
 
     print("\nConnecting to database...")
     conn = psycopg2.connect(DATABASE_URL)
 
+<<<<<<< HEAD
     seed(us_df, conn)
+=======
+    # Run schema first
+    with open("/backend/src/db/schema.sql") as f:
+        conn.cursor().execute(f.read())
+    conn.commit()
+    print("Schema created")
+
+    seed(combined, conn)
+>>>>>>> 9454744 (phase 2 - ml-model)
     conn.close()
     print("\n✅ Done! Data is in PostgreSQL.")
