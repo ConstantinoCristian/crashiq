@@ -6,6 +6,6 @@ __pycache__/
 dist/
 .DS_Store
 *.log
-data/
+data/us_accidents.csv
 ml/model.joblib
 frontend/git add .gitignore
