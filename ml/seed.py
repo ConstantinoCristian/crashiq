@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 
 DATABASE_URL = "postgresql://crashiq:crashiq_dev@db:5432/crashiq"
 
-# ── UK severity mapping ─────────────────────────────────────────────────────
+# ── UK severity mapping
 UK_SEVERITY = {"1": "fatal", "2": "serious", "3": "slight"}
 
 UK_WEATHER = {
@@ -56,7 +56,7 @@ UK_SURFACE = {
     "7": "mud",
 }
 
-# ── US severity mapping ─────────────────────────────────────────────────────
+# ── US severity mapping
 US_SEVERITY = {1: "slight", 2: "slight", 3: "serious", 4: "fatal"}
 
 
@@ -191,4 +191,4 @@ if __name__ == "__main__":
     seed(combined, conn)
 >>>>>>> 9454744 (phase 2 - ml-model)
     conn.close()
-    print("\n✅ Done! Data is in PostgreSQL.")
+    print("\n Done! Data is in PostgreSQL.")
