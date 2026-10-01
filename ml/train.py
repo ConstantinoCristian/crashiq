@@ -13,7 +13,7 @@ from sklearn.metrics import classification_report
 import joblib
 import os
 
-# ── Load data ───────────────────────────────────────────────────────────────
+
 
 def load_data() -> pd.DataFrame:
     uk_path = "../data/uk_accidents.csv"
@@ -59,7 +59,7 @@ def load_data() -> pd.DataFrame:
     return df
 
 
-# ── Feature engineering ─────────────────────────────────────────────────────
+# ── Feature engineering
 
 def prepare_features(df: pd.DataFrame):
     features = ["weather", "road_type", "speed_limit", "light",
@@ -84,7 +84,7 @@ def prepare_features(df: pd.DataFrame):
     return X, y, encoders, features
 
 
-# ── Train ───────────────────────────────────────────────────────────────────
+# ── Train 
 
 def train():
     df = load_data()
