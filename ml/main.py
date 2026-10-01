@@ -14,9 +14,9 @@ def load_model():
     global model_data
     if os.path.exists(MODEL_PATH):
         model_data = joblib.load(MODEL_PATH)
-        print(f"✅ Model loaded from {MODEL_PATH}")
+        print(f" Model loaded from {MODEL_PATH}")
     else:
-        print(f"⚠️  No model found at {MODEL_PATH} — run train.py first")
+        print(f"  No model found at {MODEL_PATH} — run train.py first")
 
 load_model()
 
