@@ -4,10 +4,10 @@ A full-stack road accident analytics and risk prediction dashboard using real gl
 
 ## Features
 
-* 🗺️ Interactive global accident hotspot map
-* 📊 Trend charts by weather, time, vehicle type
-* 🔮 Risk prediction based on road conditions
-* 🌍 Data from UK STATS19, WHO, NHTSA datasets
+Interactive global accident hotspot map
+Trend charts by weather, time, vehicle type
+Risk prediction based on road conditions
+Data from UK STATS19, WHO, NHTSA datasets
 
 ## Tech Stack
 
